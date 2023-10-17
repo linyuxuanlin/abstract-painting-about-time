@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Abstract Painting About Time</title>
+    <style>
+      body {
+        background-color: #f2f2f2; /* 淡灰色背景 */
+        overflow: hidden; /* 隐藏滚动条 */
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 85vh;
+      }
+
+      .title {
+        font-family: "Pacifico", cursive; /* 艺术字体样式 */
+        font-size: 40px;
+        text-align: center;
+        margin-top: 10px; 
+      }
+
+      .image {
+        max-width: 100%; /* 图片宽度最大为容器宽度 */
+        margin-top: 10px; /* 图片上方留白 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">TIME</h1>
+      <img class="image" id="image" src="" alt="wait a minute~" />
+    </div>
+
+    <script>
+      function updateTime() {
+        // 获取当前时间
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth();
+        var day = now.getDate();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+
+        // 格式化时间
+        var formattedTime = year + month + day + hour + minute + second;
+
+        // 生成图片链接
+        var imageUrl = "https://image.pollinations.ai/prompt/abstract-painting-about-time-" + formattedTime;
+
+        // 更新图片链接
+        document.getElementById("image").src = imageUrl;
+      }
+
+      // 初始加载时间
+      updateTime();
+
+      // 每10秒刷新时间
+      setInterval(updateTime, 10000);
+    </script>
+  </body>
+</html>
